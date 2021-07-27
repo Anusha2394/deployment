@@ -1,0 +1,1227 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 15 20:56:03 2020
+
+@author: kasaa
+"""
+import numpy as np
+import pandas as pd
+from flask import Flask, request, jsonify, render_template
+import pickle
+from sklearn.preprocessing import MinMaxScaler
+scalar=MinMaxScaler()
+
+app = Flask(__name__)
+model = pickle.load(open('model.pkl', 'rb'))
+
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/predict',methods=['POST'])
+def predict():
+    
+
+    
+     Category=request.form['Category']
+     if(Category=='ART_AND_DESIGN'):
+            Category_ART_AND_DESIGN = 1
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='AUTO_AND_VEHICLES'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 1
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='BEAUTY'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 1
+            BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='BOOKS_AND_REFERENCE'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 1
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='BUSINESS'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 1
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='COMICS'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 1
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='COMMUNICATION'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 1
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='DATING'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 1
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='EDUCATION'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 1
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='ENTERTAINMENT'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 1
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='EVENTS'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 1 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='FAMILY'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 1
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='FINANCE'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 1
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='FOOD_AND_DRINK'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 1
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='GAME'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 1
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='HEALTH_AND_FITNESS'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 1
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='HOUSE_AND_HOME'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 1
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='LIBRARIES_AND_DEMO'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 1
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='MAPS_AND_NAVIGATION'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 1
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='MEDICAL'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 1
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='NEWS_AND_MAGAZINES'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 1
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='PARENTING'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 1
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='PERSONALIZATION'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 1
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='PHOTOGRAPHY'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 1
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='PRODUCTIVITY'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 1
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='SHOPPING'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 1
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='SOCIAL'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 1
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='SPORTS'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 1
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='TOOLS'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 1
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='TRAVEL_AND_LOCAL'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 1
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 0
+     elif(Category=='VIDEO_PLAYERS'):
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 1
+            Category_WEATHER = 0
+     else:
+            Category_ART_AND_DESIGN = 0
+            Category_AUTO_AND_VEHICLES = 0
+            Category_BEAUTY = 0
+            Category_BOOKS_AND_REFERENCE = 0
+            Category_BUSINESS = 0
+            Category_COMICS = 0
+            Category_COMMUNICATION = 0
+            Category_DATING = 0
+            Category_EDUCATION = 0
+            Category_ENTERTAINMENT = 0
+            Category_EVENTS = 0 
+            Category_FAMILY = 0
+            Category_FINANCE = 0
+            Category_FOOD_AND_DRINK = 0
+            Category_GAME = 0
+            Category_HEALTH_AND_FITNESS = 0
+            Category_HOUSE_AND_HOME = 0
+            Category_LIBRARIES_AND_DEMO = 0
+            Category_LIFESTYLE = 0
+            Category_MAPS_AND_NAVIGATION = 0
+            Category_MEDICAL = 0
+            Category_NEWS_AND_MAGAZINES = 0
+            Category_PARENTING = 0
+            Category_PERSONALIZATION = 0
+            Category_PHOTOGRAPHY = 0
+            Category_PRODUCTIVITY = 0
+            Category_SHOPPING = 0
+            Category_SOCIAL = 0
+            Category_SPORTS = 0
+            Category_TOOLS = 0
+            Category_TRAVEL_AND_LOCAL = 0
+            Category_VIDEO_PLAYERS = 0
+            Category_WEATHER = 1
+     Content = request.form["ContentRating"]
+     if (Content == 'Everyone'):
+         ContentRating_Everyone = 1
+         ContentRating_Everyone10 = 0
+         ContentRating_Mature17 = 0
+         ContentRating_Teen = 0
+         ContentRating_Unrated = 0
+            
+     elif(Category=='Everyone10'):
+         ContentRating_Everyone = 0
+         ContentRating_Everyone10 = 1
+         ContentRating_Mature17 = 0
+         ContentRating_Teen = 0
+         ContentRating_Unrated = 0
+     elif(Category=='Mature17'):
+         ContentRating_Everyone = 0
+         ContentRating_Everyone10 = 0
+         ContentRating_Mature17 = 1
+         ContentRating_Teen = 0
+         ContentRating_Unrated = 0
+     elif(Category=='Teen'):
+         ContentRating_Everyone = 0
+         ContentRating_Everyone10 = 0
+         ContentRating_Mature17 = 0
+         ContentRating_Teen = 1
+         ContentRating_Unrated = 0
+     elif(Category=='Unrated'):
+         ContentRating_Everyone = 0
+         ContentRating_Everyone10 = 0
+         ContentRating_Mature17 = 0
+         ContentRating_Teen = 0
+         ContentRating_Unrated = 1
+     else:
+        ContentRating_Everyone = 0
+        ContentRating_Everyone10 = 0
+        ContentRating_Mature17 = 0
+        ContentRating_Teen = 0
+        ContentRating_Unrated = 0
+        
+     Reviews = int(request.form["Reviews"])
+     Size = float(request.form['Size'].replace('M','e+6').replace('k','e+3').replace('Varies with device','0'))
+     Installs = int(request.form['Installs'].replace(',','').replace('+',''))
+     Price = float(request.form['Price'].replace('$',''))
+     Type = request.form["Type"]
+     if(Type == "Free"):
+         Type_Paid = 0
+     else:
+         Type_Paid = 1
+         
+     predict_params=[[
+         Reviews,
+         Size,
+         Installs,
+         Price,
+         ContentRating_Everyone,
+         ContentRating_Everyone10,
+         ContentRating_Mature17,
+         ContentRating_Teen,
+         ContentRating_Unrated,
+         Type_Paid,
+         Category_ART_AND_DESIGN,
+         Category_AUTO_AND_VEHICLES,
+         Category_BEAUTY,
+         Category_BOOKS_AND_REFERENCE,
+         Category_BUSINESS,
+         Category_COMICS,
+         Category_COMMUNICATION,
+         Category_DATING,
+         Category_EDUCATION,
+         Category_ENTERTAINMENT,
+         Category_EVENTS,
+         Category_FAMILY,
+         Category_FINANCE,
+         Category_FOOD_AND_DRINK,
+         Category_GAME,
+         Category_HEALTH_AND_FITNESS,
+         Category_HOUSE_AND_HOME,
+         Category_LIBRARIES_AND_DEMO,
+         Category_LIFESTYLE,
+         Category_MAPS_AND_NAVIGATION,
+         Category_MEDICAL,
+         Category_NEWS_AND_MAGAZINES,
+         Category_PARENTING,
+         Category_PERSONALIZATION,
+         Category_PHOTOGRAPHY,
+         Category_PRODUCTIVITY,
+         Category_SHOPPING,
+         Category_SOCIAL,
+         Category_SPORTS,
+         Category_TOOLS,
+         Category_TRAVEL_AND_LOCAL,
+         Category_VIDEO_PLAYERS,
+         Category_WEATHER]]
+     
+     from sklearn.preprocessing import StandardScaler
+     sc=StandardScaler()
+     
+     predict_params=sc.fit_transform(predict_params)
+        
+     prediction=model.predict(predict_params)
+     output=round(prediction[0],2)
+     print(output)
+        
+     return render_template('index.html',value=output )
+
+           
+
+
+
+
+app.debug = True
+app.run(host="localhost",debug = True, port=int("8086"))
